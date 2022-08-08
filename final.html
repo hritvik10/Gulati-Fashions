@@ -1,0 +1,238 @@
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <title>Doctor Appointment Portal</title>
+
+    
+
+    <!-- Bootstrap core CSS CDN -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <!-- Favicons -->
+<!-- <link rel="apple-touch-icon" href="/docs/4.5/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
+<link rel="icon" href="/docs/4.5/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="/docs/4.5/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
+<link rel="manifest" href="/docs/4.5/assets/img/favicons/manifest.json">
+<link rel="mask-icon" href="/docs/4.5/assets/img/favicons/safari-pinned-tab.svg" color="#563d7c">
+<link rel="icon" href="/docs/4.5/assets/img/favicons/favicon.ico">
+<meta name="msapplication-config" content="/docs/4.5/assets/img/favicons/browserconfig.xml">
+<meta name="theme-color" content="#563d7c"> -->
+
+
+
+<form action="/data" class="form-signin" method="POST" >
+        
+  <!-- <input type="text" name="Fname" id="input" class="form-control top" placeholder="First Name" >
+  <input type="text" id="input" name="Lname"  class="form-control middle" placeholder="Last Name" >
+  <input type="text" name="Mobileno" id="input"  class="form-control top" placeholder="Mobile Number" > -->
+  <label>
+    <input type="checkbox" value="*" name="all"> all
+  </label>
+
+  <label>
+    <input type="checkbox" value="data" name="table"> table-data
+  </label>
+  <label>
+    <input type="checkbox" value="fname" name="detail" > fname
+  </label>
+
+  <label>
+      <input type="checkbox" value="lname" name="detail"> lname
+    </label>
+    <label>
+      <input type="checkbox" value="* from data #" name="all"> whole data
+    </label>
+
+    <input type="text" name="detailinfo" id="input"  class="form-control top" placeholder="detailinfo " >
+ 
+ 
+  <!-- pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"  -->
+
+  <!-- <input type="email" id="input" name="Email" class="form-control bottom" placeholder="Email Address" required>
+   -->
+  <div class="checkbox mb-3">
+    <label>
+      <input type="checkbox" value="remember-me"> Remember me
+    </label>
+  </div>
+  <button class="btn btn-lg btn-primary btn-block" type="submit">Register</button>
+ 
+  <p class="mt-5 mb-3 text-muted">&copy; 2020</p>
+</form>
+
+
+</div>
+<div class="bg-dark shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>
+</div>
+</div>
+<table class="table table-inverse">
+<thead>
+<tr>
+<th>Fname</th>
+<th>lname</th>
+<th>number</th>
+<th>email</th>
+
+
+</tr>
+</thead>
+
+<tbody>
+<% for(var i=0; i < list.length; i++) { %>
+<tr>
+<td><%= list[i].fname %></td>
+<!-- <% const pic = "/images/pic"+i+".jpg" %> 
+<td><img src=<%= pic %> alt="img"></td> -->
+<td><%= list[i].lname %></td>
+<td><%= list[i].number %></td>
+<td><form action="/datadelete" class="form-signin" method="POST" >
+  <button value="<%= list[i].lname %>" name="delete">delete</button>
+  </form>
+</td>
+</tr>
+<% } %>
+</tbody>
+</table>
+
+
+
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+    <!-- Custom styles for this template -->
+    <link href="css/product.css" rel="stylesheet">
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light logo ">
+        <!-- <a class="navbar-brand" href="#">सkooल</a> -->
+        <img src="images/logo3.png">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse list" id="navbarNavDropdown">
+          <ul class="navbar-nav ">
+            <li class="nav-item active">
+              <a class="nav-link" href="/home">Home <span class="sr-only">(current)</span></a>
+            </li>
+           
+            <li class="nav-item dropdown">
+              <a class="nav-link" href="/">Sign Out</a>
+            </li>
+          </ul>
+        </div>
+        
+      </nav>
+    <nav class="site-header sticky-top navbar-dark bg-primary py-1">
+  <div class="container d-flex flex-column flex-md-row justify-content-between">
+    <a class="py-2" href="#" aria-label="Product">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="d-block mx-auto" role="img" viewBox="0 0 24 24" focusable="false"><title>Product</title><circle cx="12" cy="12" r="10"></circle><path d="M14.31 8l5.74 9.94M9.69 8h11.48M7.38 12l5.74-9.94M9.69 16L3.95 6.06M14.31 16H2.83m13.79-4l-5.74 9.94"></path></svg>
+    </a>
+    
+    <a class="py-2 d-none d-md-inline-block" href="/about">About</a>
+    <a class="py-2 d-none d-md-inline-block" href="/services">Services</a>
+    <a class="py-2 d-none d-md-inline-block" href="#">Treatments</a>
+    <a class="py-2 d-none d-md-inline-block" href="/schedule">Schedule</a>
+    <a class="py-2 d-none d-md-inline-block" href="/pricing">Pricing</a>
+    <a class="py-2 d-none d-md-inline-block" href="#footer">Contact</a>
+    <a class="py-2 d-none d-md-inline-block" href="#" style="text-transform: capitalize;" >Welcome <%=name%></a>
+  </div>
+</nav>
+
+<div class="hricontact">
+    <div class="circloids"></div>
+    <div class="circloids1"></div>
+    <div class="circloids2"></div>
+    <div class="circloids3"></div>
+    <div class="circloids4"></div>
+  <div class="leftofcontact">
+  <div class="contain-in">
+    <h1 style="color: #7B55FF ;margin-bottom: 2em;"> Meeting Booked!</h1>
+           <p style="text-transform: capitalize;">Name of the Patient: <%=fname%> </p> 
+             <p>Scheduled Meeting with <%=dname%> </p> 
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+
+
+
+
+
+<footer class="container py-5  " id="footer">
+    <div class="row">
+      <div class="col-12 col-md">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="d-block mb-2" role="img" viewBox="0 0 24 24" focusable="false"><title>Product</title><circle cx="12" cy="12" r="10"></circle><path d="M14.31 8l5.74 9.94M9.69 8h11.48M7.38 12l5.74-9.94M9.69 16L3.95 6.06M14.31 16H2.83m13.79-4l-5.74 9.94"></path></svg>
+        <small class="d-block mb-3 text-muted">© 2017-2020</small>
+      </div>
+      <div class="col-6 col-md">
+        <h5>Hritvik Naru</h5>
+        <ul class="list-unstyled text-small">
+          <li>csbs</li>
+          <li>101918012</li>
+         
+          <li><a class="email" href="tel:8054455819">8054455819</a>  </li>
+        
+          
+          <li><a class="email" href="mailto:hnaru_be19@thapar.edu">hnaru_be19@thapar.edu</a>  </li>
+        </ul>
+      </div>
+      <div class="col-6 col-md">
+        <h5>Samaksh Gulati</h5>
+        <ul class="list-unstyled text-small">
+          <li>csbs</li>
+          <li>101918020</li>
+         
+          <li><a class="email" href="tel:8054455819">8054455819</a>  </li>
+        
+          
+          <li><a class="email" href="mailto:sgulati_be19@thapar.edu">sgulati_be19@thapar.edu</a>  </li>
+        </ul>
+       
+      </div>
+      <div class="col-6 col-md">
+        <h5>Triambak Sharma</h5>
+        <ul class="list-unstyled text-small">
+          <li>csbs</li>
+          <li>101918006</li>
+         
+          <li><a class="email" href="tel:8054455819">8054455819</a>  </li>
+        
+          
+          <li><a class="email" href="mailto:tsharma_be19@thapar.edu">tsharma_be19@thapar.edu</a>  </li>
+        </ul>
+      </div>
+      <div class="col-6 col-md">
+        <h5>Deepinder Kaur</h5>
+        <ul class="list-unstyled text-small">
+          <li>csbs</li>
+          <li>101918014</li>
+         
+          <li><a class="email" href="tel:8054455819">8054455819</a>  </li>
+        
+          
+          <li><a class="email" href="mailto:dkaur_be19@thapar.edu">dkaur_be19@thapar.edu</a>  </li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script>window.jQuery || document.write('<script src="/docs/4.5/assets/js/vendor/jquery.slim.min.js"><\/script>')</script><script src="/docs/4.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+  
+  </body></html>
